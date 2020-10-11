@@ -1,0 +1,14 @@
+{
+    "name": "duncanrmorris/quotes",
+    "description": "The Quotes Package for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Duncan Morris",
+            "email": "duncanmorris07@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
