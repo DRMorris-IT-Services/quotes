@@ -5,7 +5,7 @@
 
     <div class="content">
         <div class="container">
-            @include('projectsmodule::layouts.alerts')
+            @include('quotes::layouts.alerts')
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
