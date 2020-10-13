@@ -12,11 +12,12 @@
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" href="{{route('quotes')}}" role="tab" aria-controls="home" aria-selected="true">Home</a>
   </li>
-  @if (AUTH::user()->quotes_edit == "on")
+  
   <li class="nav-item">
     <a class="nav-link" id="profile-tab" href="{{route('quotes.edit',['id' => $inv->quote_id])}}" role="tab" aria-controls="profile" aria-selected="false">Edit Quote</a>
   </li>
-  @endif
+  
+  
 </ul>
 
         <div class="row">
