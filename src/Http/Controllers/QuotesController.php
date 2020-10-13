@@ -23,10 +23,10 @@ class QuotesController extends Controller
     {
         //
 
-        $client = clients::join('quotes::quotes','clients.client_id', '=', 'quotes.client_id')
+        $client = clients::join('quotes','clients.client_id', '=', 'quotes.client_id')
         ->select('clients.company','quote_id','quotes.client_id')->get();
 
-       return view('quotes::quotes',['quotes' => $quotes->orderby('quote_date','DESC')->paginate(15), 'client' => $client]);
+       return view('quotes::index',['quotes' => $quotes->orderby('quote_date','DESC')->paginate(15), 'client' => $client]);
     }
 
     /**

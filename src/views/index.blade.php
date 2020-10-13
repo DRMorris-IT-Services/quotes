@@ -1,13 +1,10 @@
 
-@extends('layouts.app', [
-    'class' => '',
-    'elementActive' => 'quotes'
-])
+@extends('layouts.app')
 
 @section('content')
 
     <div class="content">
-    @include('layouts.alerts')
+    
    
     <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
