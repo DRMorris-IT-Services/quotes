@@ -21,16 +21,9 @@
     </style>
   </head>
   <body>
-  <img src="../public/duncan_logo_low.png" width="350px" style="float:right" >
+  
             <br><br><br><br><br><br><br><br><br>
-            <div align="right">
-            Duncan Robert Morris <br>
-            Hauptstraße 14 <br>
-            88167 Maierhöfen <br>
-            Deutschland <br>
-            <br>
-            Tax ID: DE321597040</td>
-    </div>
+            
 
     <h1 class="header">Quotation</h1>
 
@@ -101,17 +94,13 @@ Tax ID: {{ $i->vat_no}}
 <table width="100%">
 <tr>
 <td width="30%" align="center">
-<p class="footer">accounts@drmorris-itservices.de <br>
-Tel: +49 (0)1520 2709055</p>
+
 </td>
 <td align="center">
-<p class="footer">www.drmorris-itservices.de</p>
+
 </td>
 <td align="right">
-<p class="footer">Duncan R Morris <br>
-Hauptstraße 14 <br>
-88167 Maierhöfen <br>
-Deutschland</p>
+
 </td>
 </tr>
 </table>
