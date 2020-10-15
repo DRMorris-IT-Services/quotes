@@ -97,6 +97,7 @@
                                             <th>Tax </th>
                                             <th>Tax Exempt</th>
                                             <th>Gross Total</th>
+                                            <th></th>
                                             </tr>
                                                 </thead>
                                                 <tbody>
@@ -112,6 +113,7 @@
                                                 <td width="150px"><input type="text" id="tax" class="form-control" name="tax" value="{{$ln->line_tax}}" onchange="submit()"></td>
                                                 <td width="80px">@if($ln->line_tax_exempt == "on")<input type="checkbox" class="form-control" name="no-tax" onchange="submit()" checked>@else <input type="checkbox" class="form-control" name="no-tax" onchange="submit()">@endif</td>
                                                 <td width="150px"><input type="text" id="totalPrice" class="form-control col-12" name="total" value="{{$ln->line_total}}" onchange="submit()"></td>
+                                                <td><a href="{{route('quotes.ln.del',['id' => $ln->id])}}" ><i class="fa fa-trash text-danger"></i></a></td>
                                                 </tr>
                                                 </form>
                                                 @endforeach

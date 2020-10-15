@@ -124,8 +124,12 @@ class QuotesLinesController extends Controller
      * @param  \App\quotes_lines  $quotes_lines
      * @return \Illuminate\Http\Response
      */
-    public function destroy(quotes_lines $quotes_lines)
+    public function destroy(quotes_lines $quotes_lines, $id)
     {
         //
+        quotes_lines::where('id',$id)
+        ->delete();
+
+        return back()->withdelete(__('Quotation Line successfully removed.'));
     }
 }

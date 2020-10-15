@@ -15,6 +15,7 @@ Route::group(['namespace' => 'duncanrmorris\quotes\Http\Controllers'], function(
         ### QUOTES LINES ###
         Route::put('quotes/ln-update/{id}/{iid}', 'QuotesLinesController@update')->name('quotes.ln.update');
         Route::get('quotes/ln-net/{id}', 'QuotesLinesController@create')->name('quotes.ln.new');
+        Route::get('quotes/ln-del/{id}', 'QuotesLinesController@destroy')->name('quotes.ln.del');
    
 
     });
