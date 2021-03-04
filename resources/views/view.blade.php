@@ -8,7 +8,11 @@
 
     <div class="content">
         <div class="container">
-            @include('quotes::layouts.alerts')
+        @if (session('status'))
+    <div class="alert alert-success" role="alert">
+    {{ session('status') }}
+    </div>
+    @endif
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">

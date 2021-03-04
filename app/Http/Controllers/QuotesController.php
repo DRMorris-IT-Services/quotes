@@ -1,13 +1,15 @@
 <?php
 
-namespace duncanrmorris\quotes\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
-use duncanrmorris\quotes\App\quotes;
-use duncanrmorris\quotes\App\quotes_lines;
-use duncanrmorris\quotes\App\clients;
+use App\quotes;
+use App\quotes_lines;
+use App\clients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use PDF;
@@ -26,7 +28,7 @@ class QuotesController extends Controller
         $client = clients::join('quotes','clients.client_id', '=', 'quotes.client_id')
         ->select('clients.company','quote_id','quotes.client_id')->get();
 
-       return view('quotes::index',['quotes' => $quotes->orderby('quote_date','DESC')->paginate(15), 'client' => $client]);
+       return view('index',['quotes' => $quotes->where('user_id', auth::user()->user_id)->orderby('quote_date','DESC')->paginate(15), 'client' => $client]);
     }
 
     /**
@@ -43,6 +45,7 @@ class QuotesController extends Controller
         $quote_id = Str::random(60);
         
         quotes::create([
+            'user_id' => auth::user()->user_id,
             'quote_id' => $quote_id,
             'quote_date' => $today,
             'quote_due' => $due,
@@ -79,7 +82,7 @@ class QuotesController extends Controller
         $client = clients::join('quotes','clients.client_id', '=', 'quotes.client_id')
         ->where('quote_id',$id)->get();
         
-        return view('quotes::view', ['quotes' => $quotes->where('quote_id',$id)->get(), 'quote_lines' => $quotes_lines->where('quote_id',$id)->get(), 'id' => $id, 'clients' => $clients->orderby('company','asc')->get(), 'client' => $client]);
+        return view('view', ['quotes' => $quotes->where('quote_id',$id)->get(), 'quote_lines' => $quotes_lines->where('quote_id',$id)->get(), 'id' => $id, 'clients' => $clients->orderby('company','asc')->get(), 'client' => $client]);
     }
 
     /**
@@ -100,8 +103,8 @@ class QuotesController extends Controller
         $grand_total = quotes_lines::where('quote_id', $id)->sum('line_total');
 
         
-        return view('quotes::edit', ['quotes' => $quotes->where('quote_id',$id)->get(), 'quote_lines' => $quotes_lines->where('quote_id',$id)->get(),
-        'total_net' => $total_net, 'total_tax' => $total_tax, 'grand_total' => $grand_total, 'clients' => $clients->orderby('company','asc')->get(), 'client' => $client]);
+        return view('edit', ['quotes' => $quotes->where('quote_id',$id)->get(), 'quote_lines' => $quotes_lines->where('quote_id',$id)->get(),
+        'total_net' => $total_net, 'total_tax' => $total_tax, 'grand_total' => $grand_total, 'clients' => $clients->where('user_id', auth::user()->user_id)->orderby('company','asc')->get(), 'client' => $client]);
         
     }
 
@@ -155,7 +158,7 @@ class QuotesController extends Controller
         $name = $show[0]['company'];
         $inv_date = $show[0]['quote_date'];
 
-       $pdf = PDF::loadView('quotes::pdf', ['quotes' => $show, 'lines' => $lines]);
+       $pdf = PDF::loadView('pdf', ['quotes' => $show, 'lines' => $lines]);
         
        return $pdf->download("quotation $name $inv_date.pdf");
 

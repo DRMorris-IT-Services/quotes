@@ -1,12 +1,12 @@
 <?php
 
-namespace duncanrmorris\quotes\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
-use duncanrmorris\quotes\app\quotes;
-use duncanrmorris\quotes\app\quotes_lines;
+use App\quotes;
+use App\quotes_lines;
 use Illuminate\Http\Request;
 
 class QuotesLinesController extends Controller

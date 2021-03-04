@@ -1,6 +1,6 @@
 <?php
 
-namespace duncanrmorris\quotes\App;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -16,6 +16,6 @@ class quotes extends Model
      * @var array
      */
     protected $fillable = [
-        'quote_id', 'client_id', 'quote_date', 'quote_due', 'status', 'net_total', 'tax_total', 'grand_total',
+       'user_id','quote_id', 'client_id', 'quote_date', 'quote_due', 'status', 'net_total', 'tax_total', 'grand_total',
     ];
 }
