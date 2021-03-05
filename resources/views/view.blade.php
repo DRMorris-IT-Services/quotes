@@ -16,11 +16,11 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" href="{{route('quotes')}}" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    <a class="nav-link active" id="home-tab" href="{{route('quotes')}}" role="tab" aria-controls="home" aria-selected="true"><b>Home</b></a>
   </li>
   
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" href="{{route('quotes.edit',['id' => $inv->quote_id])}}" role="tab" aria-controls="profile" aria-selected="false">Edit Quote</a>
+    <a class="nav-link bg-warning text-white" id="profile-tab" href="{{route('quotes.edit',['id' => $inv->quote_id])}}" role="tab" aria-controls="profile" aria-selected="false"><b>Edit Quote</b></a>
   </li>
   
   
