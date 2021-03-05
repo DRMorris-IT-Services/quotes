@@ -13,11 +13,11 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" href="{{route('quotes')}}" role="tab" aria-controls="home" aria-selected="true"><b>Home</b></a>
+    <a class="nav-link active" id="home-tab" href="{{route('quotes')}}" role="tab" aria-controls="home" aria-selected="true"><b><i class="fa fa-list"></i> Home</b></a>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link bg-success text-white" id="home-tab"  href="{{route('quotes.ln.new',['id' => $inv->quote_id])}}" role="tab" aria-controls="home" aria-selected="true"><b>New Line Item</b></a>
+    <a class="nav-link bg-success text-white" id="home-tab"  href="{{route('quotes.ln.new',['id' => $inv->quote_id])}}" role="tab" aria-controls="home" aria-selected="true"><b><i class="fa fa-plus-square"></i> New Line Item</b></a>
   </li>
     </ul>
 
